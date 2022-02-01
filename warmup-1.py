@@ -21,8 +21,7 @@ def monkey_trouble(a_smile, b_smile):
     monkey_trouble(False, False) → True
     monkey_trouble(True, False) → False
     """
-    return
-
+    return a_smile == b_smile
 
 def sum_double(a, b):
     """
