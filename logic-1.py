@@ -11,7 +11,10 @@ def cigar_party(cigars, is_weekend):
     cigar_party(50, False) → True
     cigar_party(70, True) → True
     """
-    return
+
+    if is_weekend:
+        return cigars >=40
+    return 40 <= cigars <= 60
 
 
 def date_fashion(you, date):
@@ -29,8 +32,12 @@ def date_fashion(you, date):
     date_fashion(5, 2) → 0
     date_fashion(5, 5) → 1
     """
-    return
 
+    if you <= 2 or date <= 2:
+        return 0
+    if you >= 8 or date >= 8:
+        return 2
+    return 1
 
 def squirrel_play(temp, is_summer):
     """The squirrels in Palo Alto spend most of the day playing. 
