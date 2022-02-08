@@ -1,3 +1,4 @@
+
 def hello_name(str):
     """
         Given a string name, e.g. "Bob", return a greeting of the form "Hello Bob!".
@@ -33,7 +34,7 @@ def make_tags(tag, word):
     make_tags('i', 'Hello') → '<i>Hello</i>'
     make_tags('cite', 'Yay') → '<cite>Yay</cite>'
     """
-    return
+    return f"<{tag}>{word}</{tag}>"
 
 
 def make_out_word(out, word):
@@ -87,7 +88,7 @@ def first_half(str):
     first_half('HelloThere') → 'Hello'
     first_half('abcdef') → 'abc'
     """
-    return
+    return str[:len(str) // 2]
 
 
 def without_end(str):
@@ -115,7 +116,18 @@ def combo_string(str1, str2):
     combo_string('aaa', 'b') → 'baaab'
 
     """
-    return
+
+    len_1 = len(str1)
+    len_2 = len(str2)
+
+    if len_1 > len_2:
+        long_string = str1
+        short_string = str2
+    if len_2 >= len_1:
+        long_string = str2
+        short_string = str1
+
+    return short_string + long_string + short_string
 
 
 def non_start(str1, str2):
