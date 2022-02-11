@@ -6,7 +6,12 @@ def string_times(str, n):
     string_times('Hi', 3) → 'HiHiHi'
     string_times('Hi', 1) → 'Hi'
     """
-    return
+
+    result = ""
+
+    for i in range(n):
+        result = result + str
+    return result
 
 
 def front_times(str, n):
@@ -27,7 +32,15 @@ def string_bits(str):
     string_bits('Hello') → 'Hlo'
     string_bits('Hi') → 'H'
     string_bits('Heeololeo') → 'Hello'"""
-    return
+
+    result = ""
+
+    for i in range(0, len(str)):
+
+        if i % 2 == 0:
+            result = result + str[i]
+
+    return result
 
 
 def string_splosion(str):
@@ -58,7 +71,14 @@ def array_count9(nums):
     array_count9([1, 9, 9]) → 2
     array_count9([1, 9, 9, 3, 9]) → 3
     """
-    return
+
+    count = 0
+
+    for e in nums:
+        if e == 9:
+            count = count + 1
+
+    return count
 
 
 def array_front9(nums):
@@ -94,7 +114,17 @@ def string_match(str1, str2):
     string_match('abc', 'abc') → 2
     string_match('abc', 'axc') → 0
     """
-    return
+
+    len_ = len(str1)
+
+    count = 0
+
+    for i in range(len_ - 1):
+
+        if str1[i : i + 2] == str2[i : i + 2]:
+            count = count + 1
+
+    return count
 
 
 if __name__ == "__main__":
