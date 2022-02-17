@@ -61,7 +61,19 @@ def sum67(nums):
     sum67([1, 2, 2]) → 5
     sum67([1, 2, 2, 6, 99, 99, 7]) → 5
     sum67([1, 1, 6, 7, 2]) → 4"""
-    return
+    result = 0
+    region6 = False
+    for num in nums:
+        if num == 6:
+            region6 = True
+
+        if not region6:
+            result  = result + num
+
+        if num == 7:
+            region6 = False
+
+    return result
 
 
 def has22(nums):
@@ -72,7 +84,18 @@ def has22(nums):
     has22([1, 2, 2]) → True
     has22([1, 2, 1, 2]) → False
     has22([2, 1, 2]) → False"""
-    return
+    
+    prev_two = False
+    current_two = False
+    for num in nums:
+        if num==2:
+            current_two = True
+        if prev_two and current_two:
+            return True
+        prev_two = current_two
+        current_two = False
+
+    return False
 
 
 if __name__ == "__main__":

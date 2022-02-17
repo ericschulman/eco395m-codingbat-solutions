@@ -50,7 +50,11 @@ def string_splosion(str):
     string_splosion('Code') → 'CCoCodCode'
     string_splosion('abc') → 'aababc'
     string_splosion('ab') → 'aab'"""
-    return
+    result = ''
+    for index in range(len(str)+1):
+        result = result + str[:index]
+
+    return result
 
 
 def last2(str):
@@ -89,7 +93,12 @@ def array_front9(nums):
     array_front9([1, 2, 3, 4, 9]) → False
     array_front9([1, 2, 3, 4, 5]) → False
     """
-    return
+    result = False
+    nums_end = min(len(nums),4)
+    for num in nums[:nums_end]:
+        result = result or num==9
+
+    return result
 
 
 def array123(nums):
@@ -101,7 +110,12 @@ def array123(nums):
     array123([1, 1, 2, 4, 1]) → False
     array123([1, 1, 2, 1, 2, 3]) → True
     """
-    return
+    result = False
+
+    for i in range( len(nums) - 2):
+        result = result or nums[i : i + 3] == [1,2,3]
+
+    return result
 
 
 def string_match(str1, str2):

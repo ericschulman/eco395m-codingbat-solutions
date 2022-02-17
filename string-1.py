@@ -101,7 +101,7 @@ def without_end(str):
     without_end('java') → 'av'
     without_end('coding') → 'odin'
     """
-    return
+    return str[1:-1]
 
 
 def combo_string(str1, str2):
@@ -142,7 +142,7 @@ def non_start(str1, str2):
     non_start('shotl', 'java') → 'hotlava'
 
     """
-    return
+    return str1[1:] + str2[1:]
 
 
 def left2(str):
@@ -156,7 +156,7 @@ def left2(str):
     left2('java') → 'vaja'
     left2('Hi') → 'Hi'
     """
-    return
+    return str[2:] + str[:2]  
 
 
 if __name__ == "__main__":

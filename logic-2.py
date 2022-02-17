@@ -12,7 +12,14 @@ def make_bricks(small, big, goal):
     make_bricks(3, 1, 9) → False
     make_bricks(3, 2, 10) → True
     """
-    return
+    remainder = goal - 5*big
+
+    if remainder >= 0:
+        return remainder <= small
+
+    if remainder < 0:
+        remainder = goal % 5
+        return remainder <= small
 
 
 def lone_sum(a, b, c):
@@ -26,7 +33,21 @@ def lone_sum(a, b, c):
     lone_sum(3, 2, 3) → 2
     lone_sum(3, 3, 3) → 0
     """
-    return
+    a_final = a #why duplicate the variables?
+    b_final = b
+    c_final = c 
+
+    if a==b:
+        a_final = 0
+        b_final =0
+    if b==c:
+        c_final = 0
+        b_final =0
+    if a==c:
+        a_final = 0
+        b_final =0
+
+    return a_final + b_final + c_final
 
 
 def lucky_sum(a, b, c):
@@ -40,7 +61,33 @@ def lucky_sum(a, b, c):
     lucky_sum(1, 2, 13) → 3
     lucky_sum(1, 13, 3) → 1
     """
-    return
+
+    a_final = a #why duplicate the variables?
+    b_final = b
+    c_final = c 
+
+    if a==13:
+        a_final = 0
+        b_final = 0
+        c_final = 0
+    if b==13:
+        b_final = 0
+        c_final = 0
+    if c==13:
+        c_final = 0
+
+    return a_final + b_final + c_final
+
+
+def fix_teen(n):
+    if n >= 13 and n <= 19 :
+        if n == 15:
+            return 15
+        if n == 16:
+            return 16
+        return 0
+    else:
+        return n
 
 
 def no_teen_sum(a, b, c):
@@ -56,7 +103,19 @@ def no_teen_sum(a, b, c):
     no_teen_sum(1, 2, 3) → 6
     no_teen_sum(2, 13, 1) → 3
     no_teen_sum(2, 1, 14) → 3"""
-    return
+    a_final = fix_teen(a)
+    b_final = fix_teen(b)
+    c_final = fix_teen(c)
+
+    return a_final + b_final + c_final
+
+
+def round10(num):
+    remainder = num % 10
+    if remainder >= 5:
+        return num - remainder + 10 
+    if remainder < 5:
+        return num - remainder
 
 
 def round_sum(a, b, c):
@@ -72,7 +131,11 @@ def round_sum(a, b, c):
     round_sum(12, 13, 14) → 30
     round_sum(6, 4, 4) → 10
     """
-    return
+    a_final = round10(a)
+    b_final = round10(b)
+    c_final = round10(c)
+
+    return a_final + b_final + c_final
 
 
 def close_far(a, b, c):
@@ -86,7 +149,11 @@ def close_far(a, b, c):
     close_far(1, 2, 10) → True
     close_far(1, 2, 3) → False
     close_far(4, 1, 3) → True"""
-    return
+
+    close = (abs(a - b) <= 1 ) or (abs(a - c) <= 1 )
+    far_a = (abs(a - b) >= 2 ) or (abs(a - c) >= 2 )
+    far_bc = abs(b - c) >= 2
+    return close and far_a and far_bc
 
 
 def make_chocolate(small, big, goal):
@@ -95,13 +162,24 @@ def make_chocolate(small, big, goal):
     We have small bars (1 kilo each) and big bars (5 kilos each). 
     Return the number of small bars to use, assuming we always use big bars before small bars. 
     Return -1 if it can't be done.
-
+    
 
     make_chocolate(4, 1, 9) → 4
     make_chocolate(4, 1, 10) → -1
     make_chocolate(4, 1, 7) → 2
     """
-    return
+    remainder = goal - 5*big
+
+    if remainder >= 0:
+        if remainder <= small:
+            return remainder
+
+    if remainder < 0:
+        remainder = goal % 5
+        if remainder <= small:
+            return remainder
+
+    return -1
 
 
 if __name__ == "__main__":

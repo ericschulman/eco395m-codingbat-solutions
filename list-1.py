@@ -29,7 +29,7 @@ def make_pi():
 
 
     make_pi() → [3, 1, 4]"""
-    return
+    return [3, 1, 4]
 
 
 def common_end(arr1, arr2):
@@ -41,8 +41,8 @@ def common_end(arr1, arr2):
     common_end([1, 2, 3], [7, 3]) → True
     common_end([1, 2, 3], [7, 3, 2]) → False
     common_end([1, 2, 3], [1, 3]) → True"""
-    return
-
+    
+    return (arr1[0] == arr2[0]) or (arr1[-1] == arr2[-1])
 
 def sum3(nums):
     """
@@ -52,7 +52,7 @@ def sum3(nums):
     sum3([1, 2, 3]) → 6
     sum3([5, 11, 2]) → 18
     sum3([7, 0, 0]) → 7"""
-    return
+    return nums[0] + nums[1] + nums[2]
 
 
 def rotate_left3(nums):
@@ -63,7 +63,7 @@ def rotate_left3(nums):
     rotate_left3([1, 2, 3]) → [2, 3, 1]
     rotate_left3([5, 11, 9]) → [11, 9, 5]
     rotate_left3([7, 0, 0]) → [0, 0, 7]"""
-    return
+    return [nums[1],nums[2],nums[0]]
 
 
 def reverse3(nums):
@@ -74,11 +74,11 @@ def reverse3(nums):
     reverse3([1, 2, 3]) → [3, 2, 1]
     reverse3([5, 11, 9]) → [9, 11, 5]
     reverse3([7, 0, 0]) → [0, 0, 7]"""
-    return
+    return [nums[-1], nums[-2], nums[-3]]
 
 
 def max_end3(nums):
-    """n array of ints length 3, figure out which is larger, 
+    """an array of ints length 3, figure out which is larger, 
     the first or last element in the array, 
     and set all the other elements to be that value. 
     Return the changed array.
@@ -87,7 +87,14 @@ def max_end3(nums):
     max_end3([1, 2, 3]) → [3, 3, 3]
     max_end3([11, 5, 9]) → [11, 11, 11]
     max_end3([2, 11, 3]) → [3, 3, 3]"""
-    return
+
+    if nums[0] >= nums[2]:
+        return [nums[0]]*3
+
+    if nums[0] < nums[2]:
+        return [nums[2]]*3
+
+    return 
 
 
 def sum2(nums):
@@ -100,18 +107,30 @@ def sum2(nums):
     sum2([1, 2, 3]) → 3
     sum2([1, 1]) → 2
     sum2([1, 1, 1, 1]) → 2"""
-    return
+    if len(nums) == 0:
+        return 0
+    if len(nums) == 1:
+        return nums[0]
+
+    first = nums[0]
+    second = nums[1]
+
+    return first + second
 
 
 def middle_way(arr1, arr2):
     """
     Given 2 int arrays, a and b, each length 3, return a new array length 2 containing their middle elements.
-
+    
 
     middle_way([1, 2, 3], [4, 5, 6]) → [2, 5]
     middle_way([7, 7, 7], [3, 8, 0]) → [7, 8]
     middle_way([5, 2, 9], [1, 4, 5]) → [2, 4]"""
-    return
+
+    middle1 = arr1[1]
+    middle2 = arr2[1]
+
+    return [middle1, middle2]
 
 
 def make_ends(nums):
@@ -124,7 +143,9 @@ def make_ends(nums):
     make_ends([1, 2, 3]) → [1, 3]
     make_ends([1, 2, 3, 4]) → [1, 4]
     make_ends([7, 4, 6, 2]) → [7, 2]"""
-    return
+    first_element = nums[0]
+    last_element = nums[-1]
+    return [first_element,last_element]
 
 
 def has23(nums):
@@ -135,7 +156,7 @@ def has23(nums):
     has23([4, 3]) → True
     has23([4, 5]) → False
     """
-    return
+    return 2 in nums or 3 in nums
 
 
 if __name__ == "__main__":

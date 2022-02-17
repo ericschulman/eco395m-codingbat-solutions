@@ -40,7 +40,15 @@ def count_code(str):
     count_code('aaacodebbb') → 1
     count_code('codexxcode') → 2
     count_code('cozexxcope') → 2"""
-    return
+    result = 0
+
+    for i in range(len(str) - 3):
+
+        if str[i:i+2]=='co' and str[i+3]=='e':
+
+            result = result + 1
+
+    return result
 
 
 def end_other(str1, str2):
@@ -53,7 +61,16 @@ def end_other(str1, str2):
     end_other('Hiabc', 'abc') → True
     end_other('AbC', 'HiaBc') → True
     end_other('abc', 'abXabc') → True"""
-    return
+    str1_lower = str1.lower()
+    str2_lower = str2.lower()
+    len_str1 = len(str1)
+    len_str2 = len(str2)
+
+    if len_str1 >= len_str2:
+
+        return str1_lower[-1*len_str2:] == str2_lower 
+    else:
+        return str2_lower[-1*len_str1:] == str1_lower 
 
 
 def xyz_there(str):
@@ -67,7 +84,16 @@ def xyz_there(str):
     xyz_there('abcxyz') → True
     xyz_there('abc.xyz') → False
     xyz_there('xyz.abc') → True"""
-    return
+    result= False
+
+    for i in range(len(str) - 2):
+
+        if i == 0:
+            result = result or str[0:3] == 'xyz'
+
+        result = result or (str[i+1:i+4] == 'xyz' and str[i] !='.') 
+
+    return result
 
 
 if __name__ == "__main__":
