@@ -48,7 +48,16 @@ def sum13(nums):
     sum13([1, 2, 2, 1]) → 6
     sum13([1, 1]) → 2
     sum13([1, 2, 2, 1, 13]) → 6"""
-    return
+    for n in nums:
+
+    if n==13:
+        region_13 = True
+
+    if not region_13:
+        summation = summation + n
+
+    if region_13 and n!=13:
+        region_13 = False
 
 
 def sum67(nums):
